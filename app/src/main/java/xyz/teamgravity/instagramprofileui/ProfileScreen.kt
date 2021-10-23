@@ -53,7 +53,10 @@ fun ProfileScreen() {
                 .padding(horizontal = 20.dp)
         )
         Spacer(modifier = Modifier.height(10.dp))
-        PostTabView(tabs = buildTabs()) { selectedIndex ->
+        PostTabView(
+            tabs = buildTabs(),
+            selectedIndex = selectedTabIndex
+        ) { selectedIndex ->
             selectedTabIndex = selectedIndex
         }
 
@@ -383,10 +386,10 @@ fun buildHighlights() = listOf(
 @Composable
 fun PostTabView(
     modifier: Modifier = Modifier,
+    selectedIndex: Int,
     tabs: List<ImageTextModel>,
     onTabSelected: (selectedIndex: Int) -> Unit
 ) {
-    var selectedIndex by remember { mutableStateOf(0) }
     val inactiveColor = Color(0xFF777777)
 
     TabRow(
@@ -401,7 +404,6 @@ fun PostTabView(
                 selectedContentColor = Color.Black,
                 unselectedContentColor = inactiveColor,
                 onClick = {
-                    selectedIndex = index
                     onTabSelected(index)
                 }
             ) {
