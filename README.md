@@ -1,5 +1,5 @@
 # instagram-profile-ui
-Instagram profile UI built by Jetpack Compose
+Instagram profile UI built by Jetpack Compose 
 
 **Instagram Profile UI**
 
